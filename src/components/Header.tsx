@@ -4,8 +4,8 @@ import { useState } from "react";
 
 
 const user = {
-    _id: "120",
-    role: "admin"
+    _id: "",
+    role: ""
 }
 
 const Header = () => {

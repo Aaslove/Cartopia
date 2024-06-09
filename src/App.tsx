@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { CartPage, HomePage, SearchPage, Shipping } from "./pages"
+import { CartPage, HomePage, SearchPage, Shipping, Login } from "./pages"
 import { Header, Footer } from "./components"
 import { Suspense } from "react";
 import Loader from "./components/Loader"
@@ -19,12 +19,8 @@ const Coupon = lazy(() => import("./pages/admin/apps/coupon"));
 const Stopwatch = lazy(() => import("./pages/admin/apps/stopwatch"));
 const Toss = lazy(() => import("./pages/admin/apps/toss"));
 const NewProduct = lazy(() => import("./pages/admin/management/newproduct"));
-const ProductManagement = lazy(
-  () => import("./pages/admin/management/productmanagement")
-);
-const TransactionManagement = lazy(
-  () => import("./pages/admin/management/transactionmanagement")
-);
+const ProductManagement = lazy(() => import("./pages/admin/management/productmanagement"));
+const TransactionManagement = lazy(() => import("./pages/admin/management/transactionmanagement"));
 
 
 function App() {
@@ -38,6 +34,10 @@ function App() {
           <Route element={<SearchPage />} path="/search" />
           <Route element={<CartPage />} path="/cart" />
 
+          // not logged in
+          <Route element={<Login />} path="/Login" />
+
+          // logged in routes
           <Route>
             <Route element={<Shipping />} path="/shipping" />
           </Route>
