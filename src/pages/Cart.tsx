@@ -1,7 +1,19 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { VscError } from "react-icons/vsc"
+import { Link } from "react-router-dom"
 import CardItem from "../components/CardItem"
-const cartItems = []
+
+
+const cartItems = [
+    {
+        productId: "adfsnlafs",
+        photo: "src/assets/iphone.jpg",
+        name: "iphone",
+        price: 30000,
+        quantity: 4,
+        stock: 40
+    }
+]
 const subTotal = 4000;
 const tax = subTotal * .18;
 const shippingCharges = 40;
@@ -22,35 +34,31 @@ const Cart = () => {
             clearTimeout(randomCoupanChecker)
         };
     }, [discountCoupan])
-    // useEffect(() => {
-    //     if (Math.random() > .5) setIsValid(true)
-    //     else setIsValid(false)
-    // }, [discountCoupan])
+
 
     return (
         <div className="cart">
             <main>
                 {
-                    cartItems.map((item) => {
-                        <CardItem key={item.id} />
-                    })
+                    cartItems.length > 0 ? cartItems.map((item) => (
+                        <CardItem key={item.productId} cardItem={item} />
+                    )) : <h1>No Item</h1>
                 }
             </main>
             <aside>
-                <p>SubTotal: {subTotal}</p>
+                <p>SubTotal: ${subTotal}</p>
                 <p>Shipping Charges: ${shippingCharges}</p>
-                <p>Tax: {tax}</p>
+                <p>Tax: ${tax}</p>
                 <p>
-                    Discount: <em> - {discount}</em>
-
+                    Discount: <em> - ${discount}</em>
                 </p>
                 <p>
-                    <b>Total: {total}</b>
+                    <b>Total: ${total}</b>
                 </p>
                 <input
                     type="text"
                     value={discountCoupan}
-                    onChange={(e) => setDiscountCoupan(e.target.value)}
+                    onChange={(e) => setDiscountCoupan(e.target.value.toUpperCase())}
                 />
 
                 {
@@ -64,7 +72,9 @@ const Cart = () => {
                             <VscError />
                         </span>)
                 }
-
+                {
+                    cartItems.length > 0 && <Link to={'/shipping'}>Checkout</Link>
+                }
             </aside>
         </div>
     )

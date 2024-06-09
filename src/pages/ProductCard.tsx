@@ -1,18 +1,18 @@
-import React from 'react'
+
 import { FaPlus } from "react-icons/fa";
 
 
 interface ProductProp {
-    id: String;
-    stock: Number;
-    img: String;
-    name: String;
-    price: Number;
+    id: string;
+    stock: number;
+    img: string;
+    name: string;
+    price: number;
     cartHandler: () => void;
 }
 
 
-function ProductCard({ id, stock, img, name, price, cartHandler }: ProducctProp) {
+function ProductCard({ id, stock, img, name, price, cartHandler }: ProductProp) {
     return (
         <div className="productCard">
             <img src={img} alt={name} />

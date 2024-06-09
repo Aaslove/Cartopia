@@ -1,12 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { CartPage, HomePage, SearchPage } from "./pages"
+import { CartPage, HomePage, SearchPage, Shipping } from "./pages"
 import { Header, Footer } from "./components"
 import { Suspense } from "react";
 import Loader from "./components/Loader"
 import { lazy } from "react"
 import "./style/app.scss"
-// admin dashboard
 
+
+// admin dashboard
 const Dashboard = lazy(() => import("./pages/admin/dashboard"));
 const Products = lazy(() => import("./pages/admin/products"));
 const Customers = lazy(() => import("./pages/admin/customers"));
@@ -26,10 +27,6 @@ const TransactionManagement = lazy(
 );
 
 
-
-
-
-
 function App() {
   return (
 
@@ -40,6 +37,11 @@ function App() {
           <Route element={<HomePage />} path="/" />
           <Route element={<SearchPage />} path="/search" />
           <Route element={<CartPage />} path="/cart" />
+
+          <Route>
+            <Route element={<Shipping />} path="/shipping" />
+          </Route>
+
 
 
           // admin Routes

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Link } from "react-router-dom"
 import ProductCard from "../pages/ProductCard"
 function Home() {
@@ -16,7 +16,7 @@ function Home() {
       </h1>
 
       <main>
-        <ProductCard id="123" name="iPhone" stock="5" price="100000" cartHandler={addToCart} img={"https://m.media-amazon.com/images/I/71d7rfSl0wL._SX466_.jpg"} />
+        <ProductCard id="123" name="iPhone" stock={5} price={100000} cartHandler={addToCart} img="src\assets\iphone.jpg" />
       </main>
 
     </div>
