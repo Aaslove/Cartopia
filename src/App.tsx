@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { CartPage, HomePage, SearchPage, Shipping, Login } from "./pages"
+import { CartPage, HomePage, SearchPage, Shipping, Login, MyOrders, MyOrdersDetails } from "./pages"
 import { Header, Footer } from "./components"
 import { Suspense } from "react";
 import Loader from "./components/Loader"
@@ -40,6 +40,8 @@ function App() {
           // logged in routes
           <Route>
             <Route element={<Shipping />} path="/shipping" />
+            <Route element={<MyOrders />} path="/orders" />
+            <Route element={<MyOrdersDetails />} path="/orders/:id" />
           </Route>
 
 

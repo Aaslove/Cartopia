@@ -10,7 +10,7 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   user-select: none;
 }
 
@@ -19,10 +19,9 @@ a {
   color: black;
 }
 
-$color1 : white;
-$color2 : rgb(46, 46, 46);
-$color3 : rgb(0, 104, 136);
-
+$color1: white;
+$color2: rgb(46, 46, 46);
+$color3: rgb(0, 104, 136);
 
 .red {
   color: red;
@@ -42,63 +41,66 @@ $color3 : rgb(0, 104, 136);
 @import "_shipping.scss";
 @import "_search.scss";
 
-
 @import "admin-styles/dashboard";
 @import "admin-styles/products";
 @import "admin-styles/chart";
 @import "admin-styles/dashboardapp";
 @import "admin-styles/mediaquery";
 
-
-
-.header{
-
-@include flex(row, flex-end, stretch, 5rem);
-padding: 1rem;
-a {
-  color: $color2;
-  letter-spacing: 2px;
-  font-size: 1.2rem;
-
-  &:hover {
-    color: $color3;
+.container {
+  max-width: 867px;
+  width: 100%;
+  margin: auto;
+  overflow: auto;
+  > h1 {
+    @include heading;
+    margin: 1rem 0;
+    text-align: left;
   }
 }
 
-button {
-  border: none;
-  cursor: pointer;
-  background-color: transparent;
-
-  &:hover {
-    color: $color3;
-  }
-}
-
-dialog{
-  border: 1 px solid #ccc;
-  border-radius: 6px;
-  padding: 5px;
-  width: 80px;
-  position: absolute;
-  left: calc(100% - 90px);
-  top: 6%;
-  > div{
-    @include flex(column, flex-start, center, 0.25rem);
-    
-  }
-}
-
-}
-
-
-.heading{
+.heading {
   @include heading;
   margin: 1rem 0;
-  
   text-align: center;
 }
 
+.header {
+  @include flex(row, flex-end, stretch, 5rem);
+  padding: 1rem;
+  a {
+    color: $color2;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+
+    &:hover {
+      color: $color3;
+    }
+  }
+
+  button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+
+    &:hover {
+      color: $color3;
+    }
+  }
+
+  dialog {
+    border: 1 px solid #ccc;
+    border-radius: 6px;
+    padding: 5px;
+    width: 80px;
+    position: absolute;
+    left: calc(100% - 90px);
+    top: 6%;
+    > div {
+      @include flex(column, flex-start, center, 0.25rem);
+    }
+  }
+}
 
 .admin-container {
   @include grid(1fr 4fr, 2rem);
