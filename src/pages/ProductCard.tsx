@@ -12,7 +12,7 @@ interface ProductProp {
 }
 
 
-function ProductCard({ id, stock, img, name, price, cartHandler }: ProductProp) {
+function ProductCard({ img, name, price, cartHandler }: ProductProp) {
     return (
         <div className="productCard">
             <img src={img} alt={name} />
