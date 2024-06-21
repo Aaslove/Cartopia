@@ -7,6 +7,8 @@ import {
   getUser,
   deleteUser,
 } from "../controllers/user.controller";
+
+// importing middleware
 import { adminOnly } from "../middlewares/auth";
 
 const app = express.Router();

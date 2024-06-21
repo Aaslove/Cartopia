@@ -14,3 +14,11 @@ export type ControllerTypes = (
   res: Response,
   next: NextFunction
 ) => Promise<void | Response<any, Record<string, any>>>;
+
+export interface newProductRequestBody {
+  photo: any;
+  name: string;
+  category: string;
+  price: number;
+  stock: number;
+}
