@@ -7,6 +7,7 @@ import productRoute from "./routes/product.routes";
 
 // importing middlewares
 import { errorMiddleware } from "./middlewares/error";
+import { urlencoded } from "body-parser";
 
 connectDb();
 const port = 8000;
@@ -14,6 +15,8 @@ const port = 8000;
 const app = express();
 
 app.use(express.json());
+
+app.use(urlencoded({ extended: true }));
 
 // testing route (to check server is working fine)
 app.get("/", (req, res) => res.send("route is working healthy"));

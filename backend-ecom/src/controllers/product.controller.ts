@@ -1,18 +1,14 @@
 import { Product } from "../models/product.model";
 import { newProductRequestBody } from "../types/types";
 import { TryCatch } from "../utilities/TryCatch";
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 
 export const newProduct = TryCatch(
-  async (
-    req: Request<{}, {}, newProductRequestBody>,
-    res: Response,
-    next: NextFunction
-  ) => {
+  async (req: Request<{}, {}, newProductRequestBody>, res: Response) => {
     const { name, category, price, stock } = req.body;
-    const photo = req.body.photo;
-    console.log(name, category, price, stock, photo);
+    const photo = req.file;
 
+    console.log("Headers:", req.headers);
     const product = await Product.create({
       name,
       price,
